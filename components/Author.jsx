@@ -1,15 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 
-const Author = ({ author }) => {
-  return(
-  <div className="text-center mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-20">
+import { grpahCMSImageLoader } from '../util';
+
+const Author = ({ author }) => (
+  <div className="text-center mt-20 mb-8 p-12 relative rounded-lg bg-black bg-opacity-50">
     <div className="absolute left-0 right-0 -top-14">
-      <img
-        alt={author.name}
+      <Image
         unoptimized
-        height="100px"
-        width="100px"
+        loader={grpahCMSImageLoader}
+        alt={author.name}
+        height="70"
+        width="70"
         className="align-middle rounded-full"
         src={author.photo.url}
       />
@@ -17,7 +19,6 @@ const Author = ({ author }) => {
     <h3 className="text-white mt-4 mb-4 text-xl font-bold">{author.name}</h3>
     <p className="text-white text-ls">{author.bio}</p>
   </div>
-  )
-}
+);
 
 export default Author;
