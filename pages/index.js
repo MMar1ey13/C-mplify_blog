@@ -2,13 +2,13 @@ import { FeaturedPosts } from '../sections/index';
 import { PostCard, Categories, PostWidget, AdjacentPostCard } from '../components';
 import { getPosts } from '../services';
 // Import the package at the top of your file
-import analytics from '@vercel/analytics'
+import analytics from '@vercel/analytics';
 
 // Initialize the package
-analytics.init({ 
-  // Add your project ID here (You'll get this from your Vercel dashboard)
-  projectID: 'prj_huZVbvl2dw46xkkZJf0dMMZKS261'
-})
+analytics.init({
+  // Replace 'your-project-id' with your actual Vercel project ID
+  projectID:'prj_huZVbvl2dw46xkkZJf0dMMZKS261'
+});
 
 export default function Home({ posts }) {
   return (
