@@ -10,9 +10,9 @@ const Navbar = () => {
           My Website
         </Link>
         <ul className="flex space-x-4">
-          <li><a href="/" className="text-white hover:text-gray-200">Home</a></li>
-          <li><a href="/about" className="text-white hover:text-gray-200">About</a></li>
-          <li><a href="/services" className="text-white hover:text-gray-200">Services</a></li>
+          <li href="/" className="text-white hover:text-gray-200">Home</li>
+          <li href="/about" className="text-white hover:text-gray-200">About</li>
+          <li href="/services" className="text-white hover:text-gray-200">Services</li>
           {/* Add more menu items as needed */}
         </ul>
       </div>
