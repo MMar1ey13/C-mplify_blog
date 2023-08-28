@@ -6,17 +6,7 @@ import Link from 'next/link';
 import { grpahCMSImageLoader } from '../util';
 
 const PostCard = ({ post }) => (
-  <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
-    {/* <div className="relative shadow-md inline-block w-full h-60 lg:h-80 mb-6">
-      <Image
-        unoptimized
-        loader={grpahCMSImageLoader}
-        alt={post.title}
-        className="shadow-lg rounded-t-lg lg:rounded-lg"
-        layout="fill"
-        src={post.featuredImage.url}
-      />
-    </div> */}
+  <div className="bg-white shadow-lg rounded-lg p-2 lg:p-8 pb-12 mb-9">
     <div className="relative overflow-hidden shadow-md pb-80 mb-6">
       <img src={post.featuredImage.url} alt="" className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
     </div>
@@ -30,8 +20,8 @@ const PostCard = ({ post }) => (
           unoptimized
           loader={grpahCMSImageLoader}
           alt={post.author.name}
-          height="40"
-          width="40"
+          height="50"
+          width="50"
           className="align-middle rounded-full"
           src={post.author.photo.url}
         />
