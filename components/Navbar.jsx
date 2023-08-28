@@ -10,7 +10,7 @@ const Navbar = () => {
           My Website
         </Link>
         <ul className="flex space-x-4">
-          <li href="/" className="text-white hover:text-gray-200">Home</li>
+          <Link href="/" className="text-white hover:text-gray-200">Home</Link>
           <li href="/about" className="text-white hover:text-gray-200">About</li>
           <li href="/services" className="text-white hover:text-gray-200">Services</li>
           {/* Add more menu items as needed */}
