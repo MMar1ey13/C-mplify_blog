@@ -46,18 +46,18 @@ const PostDetail = ({ post }) => {
     <>
       <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
         <div className="relative overflow-hidden shadow-md mb-6">
-          <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+          {post.featuredImage && post.featuredImage.url && <img src={post.featuredImage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />}
         </div>
         <div className="px-4 lg:px-0">
           <div className="flex items-center mb-8 w-full">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
-              <img
+              {post.author && post.author.photo && post.author.photo.url && <img
                 alt={post.author.name}
                 height="30px"
                 width="30px"
                 className="align-middle rounded-full"
                 src={post.author.photo.url}
-              />
+              />}
               <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
             <div className="font-medium text-gray-700">
@@ -70,6 +70,7 @@ const PostDetail = ({ post }) => {
           <h1 className="mb-8 text-gray-700 text-3xl font-semibold">{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
         </div>

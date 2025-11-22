@@ -27,15 +27,15 @@ const PostWidget = ({ categories, slug }) => {
       {relatedPosts.map((post, index) => (
         <div key={index} className="flex items-center w-full mb-4">
           <div className="w-16 flex-none">
-            <img
+            {post.featuredImage && post.featuredImage.url && <Image
               loader={grpahCMSImageLoader}
               alt={post.title}
-              height="60px"
-              width="60px"
+              height={60}
+              width={60}
               unoptimized
               className="align-middle rounded-full"
               src={post.featuredImage.url}
-            />
+            />}
           </div>
           <div className="flex-grow ml-4">
             <p className="text-gray-500 font-xs">{moment(post.createdAt).format('MMM DD, YYYY')}</p>

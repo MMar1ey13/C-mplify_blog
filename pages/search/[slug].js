@@ -1,10 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { PostCard, Categories, PostWidget, Loader } from '../../components';
+import { getSearchResults } from '../../services';
 
-import { getCategories, getCategoryPosts } from '../../services';
-import { PostCard, Categories, Loader } from '../../components';
-
-const CategoryPost = ({ posts }) => {
+const SearchResults = ({ posts }) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -21,6 +20,7 @@ const CategoryPost = ({ posts }) => {
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className="relative lg:sticky top-8">
+            <PostWidget />
             <Categories />
           </div>
         </div>
@@ -28,23 +28,12 @@ const CategoryPost = ({ posts }) => {
     </div>
   );
 };
-export default CategoryPost;
 
-// Fetch data at build time
-export async function getStaticProps({ params }) {
-  const posts = await getCategoryPosts(params.slug);
+export default SearchResults;
 
+export async function getServerSideProps({ params }) {
+  const posts = await getSearchResults(params.slug);
   return {
     props: { posts },
-  };
-}
-
-// Specify dynamic routes to pre-render pages based on data.
-// The HTML is generated at build time and will be reused on each request.
-export async function getStaticPaths() {
-  const categories = await getCategories();
-  return {
-    paths: categories.map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
   };
 }
